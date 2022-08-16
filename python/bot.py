@@ -45,7 +45,7 @@ async def phone_handler(message):
     await Bot.send_message(message.chat.id, """
 Ура! Ты зарегистрирован!
 
-Нажми на кнопку *Меню* чтобы узнать побольше о нашем лагере!
+Нажми на одну из кнопок ниже чтобы узнать побольше о нашем лагере!
     """,reply_markup=Keyboard.get_keyboard_markup())
 
 @Bot.message_handler(func=lambda m: Keyboard.is_description_exists(m.text))

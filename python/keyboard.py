@@ -25,7 +25,6 @@ class KeyboardClass():
     def _get_keyboard_df(self):
         all_keyboard = wks_keyboard.get_as_df()
         valid_keyboard = all_keyboard.loc[
-            (all_keyboard['Команда'] != '') &
             (all_keyboard['Описание'] != '') &
             (all_keyboard['Текст'] != '')
         ]
