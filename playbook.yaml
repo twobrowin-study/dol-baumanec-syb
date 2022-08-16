@@ -1,0 +1,47 @@
+# Load images
+- hosts: all
+  tags:
+    - docker_img
+  tasks:
+    - name: Copy docker images
+      copy:
+        src: ./img/
+        dest: /img/
+        directory_mode: yes
+      register: docker_img_copy
+    
+    - name: Load docker images
+      docker_image:
+        name: "{{ item | split('/') | last | split('_') | first | split('=') | join('/') }}"
+        tag: "{{ item | split('/') | last | split('_') | last }}"
+        load_path: "/img/{{ item | split('/') | last  }}"
+        source: load
+      with_fileglob:
+        - ./img/*
+
+# Run images
+- hosts: all
+  tags:
+    - run_docker
+  vars_files:
+    - secrets.yaml
+  tasks:
+    - name: Run dol baumanec syb docker container
+      docker_container:
+        name: dol-baumanec-syb
+        image: localhost/dol-baumanec-syb:v1.1
+        state: started
+        detach: yes
+        restart: yes
+        recreate: yes
+        env:
+          BOT_TOKEN: "{{ bot_token }}"
+          SHEETS_ACC_JSON: "{{ sheet_acc_json | string }}"
+
+          SHEETS_NAME: "Таблица бота бауманец для ШМБ"
+          SHAEET_PHONE: "Номера телефонов"
+          SHEET_COMMANDS: "Команды бота"
+
+          UPDATE_COMMANDS_TIMEOUT: "10"
+          UPDATE_PHONES_TIMEOUT: "1"
+    

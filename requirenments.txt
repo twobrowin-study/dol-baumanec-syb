@@ -1,0 +1,5 @@
+pandas
+phonenumbers
+https://github.com/nithinmurali/pygsheets/archive/staging.zip
+pyTelegramBotAPI
+aiohttp

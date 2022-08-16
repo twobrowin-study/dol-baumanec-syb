@@ -1,0 +1,10 @@
+BOT_TOKEN=''
+
+SHEETS_ACC_JSON=''
+
+SHEETS_NAME='Таблица бота бауманец для ШМБ'
+SHAEET_PHONE='Номера телефонов'
+SHEET_COMMANDS='Команды бота'
+
+UPDATE_COMMANDS_TIMEOUT='10'
+UPDATE_PHONES_TIMEOUT='1'
