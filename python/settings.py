@@ -14,7 +14,7 @@ if SheetsAccJson != None and SheetsAccJson != '':
 SheetsName = getenv('SHEETS_NAME', 'Таблица бота бауманец для ШМБ')
 
 SheetPhones = getenv('SHAEET_PHONE', 'Номера телефонов')
-SheetCommands = getenv('SHEET_COMMANDS', 'Команды бота')
+SheetKeyboard = getenv('SHEET_KEYBOARD', 'Команды бота')
 
-UpdateCommandsTimeout = int(getenv('UPDATE_COMMANDS_TIMEOUT', 10))
+UpdateKeyboardTimeout = int(getenv('UPDATE_KEYBOARD_TIMEOUT', 10))
 UpdatePhonesTimeout = int(getenv('UPDATE_PHONES_TIMEOUT', 1))

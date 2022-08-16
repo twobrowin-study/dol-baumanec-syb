@@ -3,7 +3,7 @@ from telebot.async_telebot import AsyncTeleBot
 from datetime import datetime
 from settings import BotToken
 
-from commands import Commands
+from keyboard import Keyboard
 from phones import Phones
 from phone_parser import check_if_valid_phone
 
@@ -46,20 +46,20 @@ async def phone_handler(message):
 Ура! Ты зарегистрирован!
 
 Нажми на кнопку *Меню* чтобы узнать побольше о нашем лагере!
-    """)
+    """,reply_markup=Keyboard.get_keyboard_markup())
 
-@Bot.message_handler(commands=Commands.get_valid_list())
+@Bot.message_handler(func=lambda m: Keyboard.is_description_exists(m.text))
 async def comands_handler(message):
-    command = message.text.split('/')[-1]
-    df_reply = Commands.get_row_by_command(command)
+    description = message.text
+    df_reply = Keyboard.get_row_by_description(description)
     
-    print("\n{}: Got command".format(datetime.now()))
+    print("\n{}: Got description".format(datetime.now()))
     print(df_reply)
     
     description = df_reply['Описание']
     text = df_reply['Текст']
-    await Bot.send_message(message.chat.id, description + '\n\n' + text)
+    await Bot.send_message(message.chat.id, description + '\n\n' + text, reply_markup=Keyboard.get_keyboard_markup())
     
     if df_reply['Изображение'] != '':
         image = df_reply['Изображение']
-        await Bot.send_photo(message.chat.id, image)
+        await Bot.send_photo(message.chat.id, image, reply_markup=Keyboard.get_keyboard_markup() )

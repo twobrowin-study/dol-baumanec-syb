@@ -29,7 +29,7 @@
     - name: Run dol baumanec syb docker container
       docker_container:
         name: dol-baumanec-syb
-        image: localhost/dol-baumanec-syb:v1.1
+        image: localhost/dol-baumanec-syb:v1.2
         state: started
         detach: yes
         restart: yes
@@ -40,8 +40,8 @@
 
           SHEETS_NAME: "Таблица бота бауманец для ШМБ"
           SHAEET_PHONE: "Номера телефонов"
-          SHEET_COMMANDS: "Команды бота"
+          SHEET_KEYBOARD: "Команды бота"
 
-          UPDATE_COMMANDS_TIMEOUT: "10"
+          UPDATE_KEYBOARD_TIMEOUT: "10"
           UPDATE_PHONES_TIMEOUT: "1"
     
