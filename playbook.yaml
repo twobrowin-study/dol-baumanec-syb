@@ -42,6 +42,6 @@
           SHAEET_PHONE: "Номера телефонов"
           SHEET_KEYBOARD: "Команды бота"
 
-          UPDATE_KEYBOARD_TIMEOUT: "10"
-          UPDATE_PHONES_TIMEOUT: "1"
+          UPDATE_KEYBOARD_TIMEOUT: "3600"
+          UPDATE_PHONES_TIMEOUT: "3600"
     
