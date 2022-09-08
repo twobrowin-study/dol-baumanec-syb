@@ -5,7 +5,7 @@ WORKDIR /python-docker
 COPY requirenments.txt .
 RUN pip3 install -r requirenments.txt
 
-COPY python/*.py .
+COPY python/*.py ./
 
 ENV BOT_TOKEN ''
 ENV SHEETS_ACC_JSON ''

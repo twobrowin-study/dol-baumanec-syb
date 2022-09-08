@@ -7,5 +7,5 @@ from phones import Phones
 loop = asyncio.get_event_loop()
 asyncio.ensure_future(Keyboard.update_valid())
 asyncio.ensure_future(Phones.update())
-asyncio.ensure_future(Bot.polling(non_stop=True))
+asyncio.ensure_future(Bot.infinity_polling())
 loop.run_forever()
