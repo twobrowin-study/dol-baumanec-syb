@@ -4,8 +4,12 @@ from bot import Bot
 from keyboard import Keyboard
 from phones import Phones
 
-loop = asyncio.get_event_loop()
-asyncio.ensure_future(Keyboard.update_valid())
-asyncio.ensure_future(Phones.update())
-asyncio.ensure_future(Bot.infinity_polling())
-loop.run_forever()
+async def main():
+    await asyncio.gather(
+        Keyboard.update_valid(),
+        Phones.update(),
+        Bot.infinity_polling()
+    )
+
+if __name__ == '__main__':
+    asyncio.run(main())

@@ -48,7 +48,7 @@
     - name: Run dol baumanec syb docker container
       docker_container:
         name: dol-baumanec-syb
-        image: dol-baumanec-syb:v1.5
+        image: dol-baumanec-syb:v1.6
         state: started
         detach: yes
         restart: yes
