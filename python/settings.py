@@ -17,4 +17,3 @@ SheetPhones = getenv('SHAEET_PHONE', 'Номера телефонов')
 SheetKeyboard = getenv('SHEET_KEYBOARD', 'Команды бота')
 
 UpdateKeyboardTimeout = int(getenv('UPDATE_KEYBOARD_TIMEOUT', 10))
-UpdatePhonesTimeout = int(getenv('UPDATE_PHONES_TIMEOUT', 1))

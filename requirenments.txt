@@ -1,5 +1,4 @@
 pandas
 phonenumbers
-https://github.com/nithinmurali/pygsheets/archive/staging.zip
-pyTelegramBotAPI
-aiohttp
+python-telegram-bot>=20.0a0
+gspread
